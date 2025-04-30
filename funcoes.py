@@ -42,4 +42,5 @@ def calcula_pontos_regra_simples(face_dos_dados):
     dvalores[5]=v5
     dvalores[6]=v6
     return dvalores
-print(calcula_pontos_regra_simples([2, 3, 4, 5, 2]))
+
+
