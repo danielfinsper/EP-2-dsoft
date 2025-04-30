@@ -42,5 +42,8 @@ def calcula_pontos_regra_simples(face_dos_dados):
     dvalores[5]=v5
     dvalores[6]=v6
     return dvalores
-
-
+def calcula_pontos_soma(dados_rolados):
+    total= 0
+    for valor in dados_rolados:
+        total += valor
+    return total
