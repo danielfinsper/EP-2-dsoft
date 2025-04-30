@@ -42,8 +42,20 @@ def calcula_pontos_regra_simples(face_dos_dados):
     dvalores[5]=v5
     dvalores[6]=v6
     return dvalores
+
 def calcula_pontos_soma(dados_rolados):
     total= 0
     for valor in dados_rolados:
         total += valor
     return total
+
+#lista de números inteiros representando as faces dos dados rolados
+def calcula_pontos_sequencia_baixa (lista):
+    soma = 0
+    for i in range(len(lista)):
+        if lista[i] == lista[i+1]-1:
+            soma = soma + 1 
+    if soma == 4:
+        return 15
+    else:
+        return 0
