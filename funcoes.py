@@ -101,9 +101,14 @@ def calcula_pontos_quadra (lista):
     
     contagens = [contar1, contar2, contar3, contar4, contar5, contar6]
 
+    contar_maior = 0
+    for i in contagens:
+        if i > contar_maior:
+            contar_maior=i
+
     soma = 0
 
-    if 4 in contagens:
+    if contar_maior>3:
         for i in lista:
             soma = soma + i
         return soma
