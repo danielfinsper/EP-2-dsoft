@@ -49,17 +49,24 @@ def calcula_pontos_soma(dados_rolados):
         total += valor
     return total
 
-#lista de números inteiros representando as faces dos dados rolados
-def calcula_pontos_sequencia_baixa (lista):
-    soma = 0
-    for i in range(len(lista)):
-        if lista[i] == lista[i+1]-1:
-            soma = soma + 1 
-    if soma == 4:
+def calcula_pontos_sequencia_baixa(lista):
+    tem_1 = False
+    tem_2 = False
+    tem_3 = False
+    tem_4 = False
+    for numero in lista:
+        if numero == 1:
+            tem_1 = True
+        elif numero == 2:
+            tem_2 = True
+        elif numero == 3:
+            tem_3 = True
+        elif numero == 4:
+            tem_4 = True
+    if tem_1 and tem_2 and tem_3 and tem_4:
         return 15
     else:
         return 0
-    
 def calcula_pontos_sequencia_alta(lista):
     lista_ordenada = sorted(set(lista))
     soma = 0
@@ -134,3 +141,13 @@ def calcula_pontos_quina (lista):
         return 50
     else:
         return 0
+    
+def calcula_pontos_regra_avancada(face_dos_dados):
+    return {
+        'cinco_iguais': calcula_pontos_quina(face_dos_dados),
+        'full_house': calcula_pontos_full_house(face_dos_dados),
+        'quadra': calcula_pontos_quadra(face_dos_dados),
+        'sem_combinacao': calcula_pontos_soma(face_dos_dados),
+        'sequencia_alta': calcula_pontos_sequencia_alta(face_dos_dados),
+        'sequencia_baixa': calcula_pontos_sequencia_baixa(face_dos_dados),
+    }
